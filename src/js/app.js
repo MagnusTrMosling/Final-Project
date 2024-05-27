@@ -1,0 +1,2 @@
+import firebaseConfig from "./firebaseConfig";
+
