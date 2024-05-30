@@ -214,6 +214,17 @@ img{
 	border: 1px solid black;
 	padding: 1rem;
   }
+  .sort-button {
+	background-color: #97BE5A;
+	border: 1px solid black;
+	color: black;
+	padding: 12px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+  }
 
   .element-container {
 	padding: 1rem;
