@@ -13,7 +13,6 @@ const validateSignUpForm = (firstname, lastname, email, password, ErrorMsg) => {
 	const signUpErrorStatus = () => {
 	  return errorStatus;
 	};
-  
 	return { errorStatus, signUpErrorStatus };
   };
   

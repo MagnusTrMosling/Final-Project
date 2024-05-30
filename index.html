@@ -7,16 +7,18 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./src/styles/style.css">
-	<title>Final project</title>
+	<title>Dinner House</title>
 </head>
 <body>
 
 	<header class="roboto-regular">
-		<h1>Final project</h1>
+		<h1>Dinner House</h1>
 		<button class="sign-out-button">Sign out</button>
 	</header>
 
 	<main>
+		<img src="./src/asstes/grånsaker.webp" alt="">
+
 		<form class="sign-in-form">
 			<h1>Log in</h1>
 			<br>
@@ -38,11 +40,13 @@
 
 		</form>
 
-		<img class="main-image" src="./src/asstes/grånsaker.webp" alt="">
 	</main>
 
-
-
+	<section>
+		<h1>Welcome to my web food page!</h1>
+    	<p>Food is any substance consumed by an organism for nutritional support. Food is usually of plant, animal, or fungal origin and contains essential nutrients such as carbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide energy, maintain life, or stimulate growth. Different species of animals have different feeding behaviours that satisfy the needs of their metabolisms and have evolved to fill a specific ecological niche within specific geographical contexts.</p>
+    <ul>
+	</section>
 
 	<div class="sign-up-form-container">
 		<h1>Sign in</h1>
@@ -58,7 +62,7 @@
 			<label for="sign-up-email">Email</label>
 			<input type="email" name="sign-up-email" class="sign-up-email" required/>
 
-			<label for="sign-up-password">Password</label>
+			<label for="sign-up-password">Password (minimum 6 caractères)</label>
 			<input type="password" name="sign-up-password" class="sign-up-password" required/>
 
 			<p class="sign-up-error">Error</p>
@@ -71,23 +75,25 @@
 					</p>
 			</div>
 		</form>
+
 	</div>
+	  <div class="main-content-container">
+		<br>
+		<h1>Chef's</h1>
+		<br>
 
-
-
-
-	  <div class="main-content-container"></div>
-
-
-
-
+		<div class="sort-buttons-container">
+			<button class="sort-by-firstname-button">Firstname</button>
+			<button class="sort-by-lastname-button">Lastname</button>
+			<button class="sort-by-email-button">Email</button>
+		  </div>
+		  <div class="display-data-container"></div>
+	  </div>
 
 	<footer>
 		All rigth reserved Magnus
 	</footer>
 
-
-	<!-- <script src="./src/js/app.js"></script> -->
 	<script src="./dist/bundle.js"></script>
 </body>
 </html>

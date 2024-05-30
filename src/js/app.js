@@ -165,16 +165,90 @@ signInButton.addEventListener('click', (e) => {
 
 // API
 
-async function fetchData(){
-	const dataExists = await chekDataExists();
-	if(!dataExists){
-	const response = await fetch('https://reqres.in/api/users?page=2');
-	const data = await response.json();
-	console.log(data);
-	storeDate(data.data)
-	}
+
+const peopleArray = [];
+
+const sortByFirstNameButton = document.querySelector(".sort-by-firstname-button");
+const sortByLastNameButton = document.querySelector(".sort-by-lastname-button");
+const sortByEmailButton = document.querySelector(".sort-by-email-button");
+const displayDataContainer = document.querySelector(".display-data-container");
+
+async function fetchData() {
+  const dataExists = await checkDataExists();
+  if (!dataExists) {
+    const response = await fetch("https://reqres.in/api/users?page=2");
+    const data = await response.json();
+    console.log(data);
+    storeData(data.data);
+  }
 }
-fetchData()
+fetchData();
+
+function checkDataExists() {
+  return new Promise((resolve) => {
+    if (peopleArray.length === 0) {
+      resolve(false);
+    } else {
+      resolve(true);
+    }
+  });
+}
+
+const sortByName = (data) => {
+  return data.slice().sort((a, b) => a.first_name.localeCompare(b.first_name));
+};
+
+const sortByLastName = (data) => {
+  return data.slice().sort((a, b) => a.last_name.localeCompare(b.last_name));
+};
+
+const sortByEmail = (data) => {
+  return data.slice().sort((a, b) => a.email.localeCompare(b.email));
+};
+
+
+const storeData = (data) => {
+  peopleArray.length = 0;
+  for (let person of data) {
+    peopleArray.push(person);
+  }
+  displayData(peopleArray);
+};
+
+const displayData = (data) => {
+  displayDataContainer.innerHTML = "";
+  for (let person of data) {
+    const p = document.createElement("div");
+    p.innerHTML = `
+      <span class="first-name">${person.first_name}</span>
+      <span class="last-name">${person.last_name}</span>
+      <span class="email">${person.email}</span>
+    `;
+    displayDataContainer.appendChild(p);
+  }
+};
+
+sortByFirstNameButton.classList.add("sort-button");
+sortByLastNameButton.classList.add("sort-button");
+sortByEmailButton.classList.add("sort-button");
+
+sortByFirstNameButton.addEventListener("click", () => {
+  const sortedByName = sortByName(peopleArray);
+  storeData(sortedByName);
+  console.log(sortedByName);
+});
+
+sortByLastNameButton.addEventListener("click", () => {
+  const sortedByLastName = sortByLastName(peopleArray);
+  storeData(sortedByLastName);
+  console.log(sortedByLastName);
+});
+
+sortByEmailButton.addEventListener("click", () => {
+  const sortedByEmail = sortByEmail(peopleArray);
+  storeData(sortedByEmail);
+  console.log(sortedByEmail);
+});
 
 
 async function storeDate(data){
